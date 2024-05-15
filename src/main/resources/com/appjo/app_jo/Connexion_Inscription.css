@@ -1,0 +1,51 @@
+.first_plane {
+    -fx-background-image: url("../Images/Log-modified.jpeg");
+    -fx-background-size: cover; /*
+    -fx-effect: brightness(0%); */
+}
+
+.co_button {
+    -fx-text-decoration: none;
+    -fx-padding: 12px;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-font-size: 1em;
+    -fx-text-fill: #000000;
+    -fx-background-color: red;
+    -fx-background-radius: 30px; /* Rayon de bordure du fond */
+    -fx-box-shadow: 5px 3px 8px black;
+}
+
+.text1 {
+    -fx-fill: white;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-font-size:  2em;
+}
+
+.text{
+    -fx-fill: white;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-text-decoration : none;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-text-fill: #000000;
+    -fx-background-color: #ffffff;
+
+}
+
+.text_field  {
+    -fx-background-color: transparent;
+    -fx-border-width :  2px;
+    -fx-border-color: black;
+    -fx-border-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.text_field:focus  {
+    -fx-background-color: red;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="vbox" prefHeight="882.0" prefWidth="1285.0" styleClass="gridPane" stylesheets="@athletesStyle.css">
+         <children>
+            <Pane fx:id="first_pane" prefHeight="214.0" prefWidth="1285.0" styleClass="first_pane" stylesheets="@athletesStyle.css">
+               <children>
+                  <Pane layoutY="-3.0" prefHeight="103.0" prefWidth="1285.0">
+                     <children>
+                        <Button layoutX="1208.0" layoutY="39.0" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="btn1" layoutX="1026.0" layoutY="31.0" mnemonicParsing="false" styleClass="btn1" stylesheets="@athletesStyle.css" text="Connexion / Inscription" />
+                        <ImageView fitHeight="113.0" fitWidth="186.0" layoutX="593.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/JO_Paris.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Text fx:id="texte1" layoutX="39.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Découvrez tout ce qu'il y a à savoir sur vos athlètes préférés" wrappingWidth="373.90625" />
+               </children>
+            </Pane>
+            <GridPane fx:id="gridPane" prefHeight="570.0" prefWidth="1285.0" stylesheets="@athletesStyle.css">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="208.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Serena_Williams.jpeg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>

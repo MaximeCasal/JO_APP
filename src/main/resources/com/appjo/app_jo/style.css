@@ -1,0 +1,51 @@
+.first_pane {
+    -fx-background-image: url("../Images/Paris.jpg");
+    -fx-background-size:  cover;
+    -fx-filter: blur(5px) brightness(50%);
+
+}
+
+.co_button {
+    -fx-text-decoration: none;
+    -fx-padding: 12px;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-font-size: 1em;
+    -fx-text-fill: #000000;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 30px; /* Rayon de bordure du fond */
+    -fx-box-shadow: 5px 3px 8px #444444;
+}
+
+.text1 {
+    -fx-fill: white;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-font-size:  2em;
+}
+
+.useless_pane {
+    -fx-background-color: #fff;
+}
+
+.text2{
+    -fx-fill: black;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-font-size:  1.5em;
+}
+
+.text3 {
+    -fx-fill: black;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-font-size:  1em;
+}
+
+.useless_pane2 {
+    -fx-background-image: url("../Images/image.jpg");
+    -fx-background-size: cover;
+}
+

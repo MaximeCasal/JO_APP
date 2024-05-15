@@ -1,0 +1,52 @@
+.first_pane {
+    -fx-background-image: url("../Images/Image-Info-event.png");
+    -fx-background-size: cover;
+}
+
+.text-first-pane {
+    -fx-background-color: white;
+    -fx-font-size: 24px;
+    -fx-text-fill: black;
+}
+
+.second-pane {
+    -fx-background-color: white;
+}
+
+.text1-second-pane {
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-font-weight: bold;
+    -fx-translate-x: 0; /* Position initiale */
+    -fx-animation: slide linear; /* Animation de translation */
+}
+
+@keyframes slide {
+    0% {
+        -fx-translate-x: 0; /* Position initiale */
+    }
+    100% {
+        -fx-translate-x: 100px; /* Position finale */
+    }
+}
+
+
+.text2-second-pane {
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-font-weight: bold;
+    -fx-translate-x: 0; /* Position initiale */
+    -fx-animation: slide linear; /* Animation de translation */
+}
+
+@keyframes slide {
+    0% {
+        -fx-translate-x: 0; /* Position initiale */
+    }
+    100% {
+        -fx-translate-x: 100px; /* Position finale */
+    }
+}
+
+
+.text3-second-pane {
+
+}
