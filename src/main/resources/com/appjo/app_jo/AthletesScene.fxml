@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox fx:id="vbox" prefHeight="882.0" prefWidth="1285.0" styleClass="gridPane" stylesheets="@athletesStyle.css">
          <children>
@@ -19,7 +13,6 @@
                <children>
                   <Pane layoutY="-3.0" prefHeight="103.0" prefWidth="1285.0">
                      <children>
-                        <Button layoutX="1208.0" layoutY="39.0" mnemonicParsing="false" text="Button" />
                         <Button fx:id="btn1" layoutX="1026.0" layoutY="31.0" mnemonicParsing="false" styleClass="btn1" stylesheets="@athletesStyle.css" text="Connexion / Inscription" />
                         <ImageView fitHeight="113.0" fitWidth="186.0" layoutX="593.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -28,30 +21,32 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Text fx:id="texte1" layoutX="39.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Découvrez tout ce qu'il y a à savoir sur vos athlètes préférés" wrappingWidth="373.90625" />
+                  <Text fx:id="texte1" layoutX="260.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Découvrez tout ce qu'il y a à savoir sur vos athlètes préférés" wrappingWidth="832.90625" />
+                  <TextField layoutX="469.0" layoutY="175.0" prefHeight="35.0" prefWidth="354.0" />
+                  <Button layoutX="833.0" layoutY="180.0" mnemonicParsing="false" text="rechercher" />
                </children>
             </Pane>
-            <GridPane fx:id="gridPane" prefHeight="570.0" prefWidth="1285.0" stylesheets="@athletesStyle.css">
+            <GridPane prefHeight="569.0" prefWidth="1285.0">
               <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="208.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="89.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/Serena_Williams.jpeg" />
+                              <Image url="@../../../Images/Teddy_Rinner-00;00;00;16.png" />
                            </image>
                         </ImageView>
                      </children>
-                  </Pane>
+                  </AnchorPane>
                </children>
             </GridPane>
          </children>
