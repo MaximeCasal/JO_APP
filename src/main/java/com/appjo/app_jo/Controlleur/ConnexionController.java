@@ -1,7 +1,6 @@
 package com.appjo.app_jo.Controlleur;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.io.IOException;
 
 import com.appjo.app_jo.Modele.DatabaseConnection;
@@ -14,7 +13,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import com.appjo.app_jo.Modele.User;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -193,6 +191,8 @@ public class ConnexionController {
         String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         return email.matches(regex);
     }
+
+
 
 
     public static void afficherMessage(String titre, String message) {

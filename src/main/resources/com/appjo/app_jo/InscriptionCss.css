@@ -1,0 +1,76 @@
+/* Styles pour le conteneur StackPane */
+.stack-pane {
+    background-color: #f0f0f0;
+}
+
+/* Styles pour les AnchorPane */
+.anchor-pane {
+    -fx-background-color: transparent;
+}
+
+/* Styles pour les labels */
+.label {
+    -fx-font-size: 18px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-text-fill: #333;
+}
+
+/* Styles pour les boutons */
+.button {
+    -fx-font-size: 16px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #007bff;
+    -fx-text-fill: #fff;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* Styles pour les textfields */
+.text-field {
+    -fx-font-size: 16px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-padding: 10px;
+}
+
+/* Styles spécifiques aux éléments de la première couche */
+.Layer1 {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+.Layer1 .label {
+    -fx-font-size: 22px;
+    -fx-text-fill: #007bff;
+}
+
+.Layer1 .button {
+    -fx-background-color: #28a745;
+}
+
+/* Styles spécifiques aux éléments de la deuxième couche */
+.Layer2 {
+    -fx-background-color: #fff;
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+.Layer2 .label {
+    -fx-font-size: 22px;
+    -fx-text-fill: #dc3545;
+}
+
+.Layer2 .button {
+    -fx-background-color: #6c757d;
+}

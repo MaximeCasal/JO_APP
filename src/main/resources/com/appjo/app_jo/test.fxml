@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <HBox prefHeight="349.0" prefWidth="111.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="803.0" prefWidth="111.0" styleClass="left" stylesheets="@test.css">
+               <children>
+                  <Button layoutX="18.0" layoutY="14.0" mnemonicParsing="false" text="Accueil" />
+                  <Button layoutX="21.0" layoutY="54.0" mnemonicParsing="false" text="Evènement " />
+                  <Button layoutX="21.0" layoutY="92.0" mnemonicParsing="false" text="Athlètes" />
+                  <Button layoutX="20.0" layoutY="132.0" mnemonicParsing="false" text="Sports" />
+                  <Button layoutX="15.0" layoutY="176.0" mnemonicParsing="false" text="Calendrier" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </left>
+   <top>
+      <VBox prefHeight="48.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="51.0" prefWidth="411.0" styleClass="top" stylesheets="@test.css">
+               <children>
+                  <TextField layoutX="262.0" layoutY="16.0" />
+                  <MenuButton layoutX="840.0" layoutY="10.0" mnemonicParsing="false" text="Nom utilisateur">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Déconnexion" />
+                    </items>
+                  </MenuButton>
+                  <ImageView fitHeight="51.0" fitWidth="67.0" layoutX="521.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/JO_Paris.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="544.0" prefWidth="1027.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="first_pane" prefHeight="260.0" prefWidth="491.0" styleClass="first_pane" stylesheets="@test.css">
+               <children>
+                  <Text fx:id="text11" layoutX="96.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text1" text="Découvrez tout sur les Jeux Olympiques de Paris 2024 !" wrappingWidth="347.13671875" />
+                  <Text fx:id="text1" layoutX="38.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text1" text="Découvrez tout sur les Jeux Olympiques de Paris 2024 !" wrappingWidth="226.20596313476562" />
+               </children>
+            </Pane>
+            <Pane fx:id="useless_pane" prefHeight="235.0" prefWidth="1314.0" styleClass="useless_pane" stylesheets="@test.css">
+               <children>
+                  <ImageView fitHeight="170.0" fitWidth="127.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Logo_Flamme_Olympique.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="text2" layoutX="153.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="LES VISAGES DES RELAIS DES ECLAIREURS" wrappingWidth="198.07077026367188" />
+                  <Text fx:id="text3" layoutX="156.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text3" text="Le Relais de la Flamme Olympique et le Relais de la Flamme Paralympique de Paris 2024 seront les « Relais des Eclaireurs », Eclaireurs qui ouvriront la voie à la célébration en 2024, et mettront en lumière la beauté des patrimoines naturel et culturel français." textAlignment="JUSTIFY" wrappingWidth="193.48187255859375" />
+                  <Text layoutX="762.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="LE NOM DE CERTAINS PORTEURS DE LA FLAMME" wrappingWidth="218.7760009765625" />
+                  <Text layoutX="768.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text3" text="Benjamin, musicien paraplégique de 43 ans. Hayet, bénévole de 21 ans. Marc, sportif de 70 ans. Marie, âgée de 37 ans, lutte quotidiennement contre les maladies chroniques . William, agé de 30 ans  et Ranitea, étudiante de 19 ans, fortement impliquée dans le développement du sport féminin." textAlignment="JUSTIFY" wrappingWidth="206.49609375" />
+                  <Text layoutX="366.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text3" text="Les Eclaireurs, ce sont tous ceux qui se sont investis dans la réussite du Relais de la Flamme des Jeux de Paris 2024, et tous ceux qui s’apprêtent à l’accueillir : partenaires de Paris 2024, territoires, acteurs du mouvement sportif, acteurs publics, membres du Club Paris 2024, et le grand public qui se mobilisera tout au long du parcours pour célébrer l’arrivée des Jeux. Si la Flamme Olympique et " textAlignment="JUSTIFY" wrappingWidth="185.38824462890625" />
+                  <Text layoutX="574.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text3" text="la Flamme Paralympique pourront bientôt sillonner la France, c’est parce que ces « Éclaireurs » vont faire du rêve qu’a longtemps été Paris 2024 une réalité, cent ans après les derniers Jeux Olympiques d’été français. Les porteurs de la Flamme seront les premiers visages de ces « Relais des Eclaireurs ». Avec leur énergie, ils feront monter l’ambiance dans les territoires, et mettront la France au diapason de la fête des Jeux." textAlignment="JUSTIFY" wrappingWidth="175.2601318359375" />
+               </children>
+            </Pane>
+            <Pane fx:id="useless_pane2" prefHeight="206.0" prefWidth="1314.0" styleClass="useless_pane2" stylesheets="@test.css">
+               <children>
+                  <Text layoutX="72.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="AUTOUR DES JEUX" textAlignment="JUSTIFY" />
+                  <ImageView fitHeight="98.0" fitWidth="182.0" layoutX="306.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Sports-aux-jeux-olympiques.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="text21" layoutX="268.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="SPORT" textAlignment="CENTER" wrappingWidth="215.14208984375" />
+                  <ImageView fitHeight="88.0" fitWidth="169.0" layoutX="733.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Sites_Jeux.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="text211" layoutX="686.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="SITES" textAlignment="CENTER" wrappingWidth="215.14208984375" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

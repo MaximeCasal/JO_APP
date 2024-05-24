@@ -9,7 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Info_evenement.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/appjo/app_jo/Sport/Sport.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         primaryStage.setTitle("Connexion");
         primaryStage.setScene(scene);
