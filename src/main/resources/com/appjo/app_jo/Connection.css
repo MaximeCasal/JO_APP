@@ -1,0 +1,22 @@
+.border-pane {
+    -fx-background-image: url('../Images/ImageFondConnection.jpeg');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+
+.text {
+    -fx-color: white;
+    -fx-font-family: "Aptos", Arial, sans-serif;
+    -fx-font-size: 1.25em;
+}
+
+.text-shadow {
+    -fx-font-size: 24px;
+    -fx-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 3, 3);
+}
+
+.text-background {
+    -fx-fill: black;
+    -fx-opacity: 0.5;
+}

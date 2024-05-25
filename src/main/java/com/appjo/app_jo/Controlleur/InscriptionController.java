@@ -1,179 +1,126 @@
     package com.appjo.app_jo.Controlleur;
 
-    import javafx.animation.TranslateTransition;
+
+    import com.appjo.app_jo.Modele.DatabaseConnection;
     import javafx.fxml.FXML;
-    import javafx.fxml.Initializable;
-    import javafx.scene.control.Button;
     import javafx.scene.control.Label;
     import javafx.scene.control.TextField;
-    import javafx.stage.Screen;
-    import javafx.util.Duration;
-    import javafx.scene.layout.AnchorPane;
-
     import javafx.scene.input.MouseEvent;
-    import java.net.URL;
-    import java.util.ResourceBundle;
 
-    import static javafx.scene.layout.AnchorPane.*;
+    import java.io.IOException;
+    import java.sql.Connection;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
 
-    public class InscriptionController implements Initializable {
+    public class InscriptionController {
 
         @FXML
-        private AnchorPane layerssignup;
+        private Label wrongLogin;
         @FXML
-        private AnchorPane Layer2;
+        private TextField nom;
         @FXML
-        private Button signin;
+        private TextField prenom;
         @FXML
-        private Label l1;
+        private TextField email;
         @FXML
-        private Label l2;
+        private TextField identifiant;
         @FXML
-        private Label l3;
+        private TextField motdepasse;
         @FXML
-        private Label s1;
+        private TextField sexe;
         @FXML
-        private Label s2;
+        private TextField pays;
         @FXML
-        private Label s3;
-        @FXML
-        private Button signup;
-        @FXML
-        private Label a2;
-        @FXML
-        private Label b2;
-        @FXML
-        private Label a1;
-        @FXML
-        private Label a4;
-        @FXML
-        private Label b1;
-        @FXML
-        private Button btnsignup;
-        @FXML
-        private Button btnsignin;
-        @FXML
-        private TextField u1;
-        @FXML
-        private TextField u2;
-        @FXML
-        private TextField u3;
-        @FXML
-        private TextField n1;
-        @FXML
-        private TextField n2;
-        @FXML
-        private Label n3;
-        @FXML
-        private AnchorPane Layer1;
-
-        private double layer1StartX;
-        private double layer2StartX;
-
-        @Override
-        public void initialize(URL url, ResourceBundle resourceBundle) {
-
-            // Ajustement des marges des couches
-            layer1StartX = Layer1.getTranslateX();
-            layer2StartX = Layer2.getTranslateX();
+        private TextField telephone;
 
 
-            a1.setVisible(true);
-            a2.setVisible(true);
-            a4.setVisible(true);
-            s3.setVisible(false);
-            signup.setVisible(false);
-            b1.setVisible(true);
-            b2.setVisible(false);
-            btnsignin.setVisible(false);
-            n1.setVisible(false);
-            n2.setVisible(false);
-            n3.setVisible(false);
-            u1.setVisible(true);
-            u2.setVisible(true);
-            u3.setVisible(true);
-            s1.setVisible(false);
-            l1.setVisible(false);
-            l3.setVisible(false);
+
+        public void userLog(MouseEvent mouseEvent) throws IOException {
+            String name = this.nom.getText();
+            String firstname = this.prenom.getText();
+            String mail = this.email.getText();
+            String username = this.identifiant.getText();
+            String mdp = this.motdepasse.getText();
+            String genre = this.sexe.getText();
+            String country = this.pays.getText();
+            String phone = this.telephone.getText();
+
+            if(name.isEmpty() || firstname.isEmpty() || mail.isEmpty() || username.isEmpty()
+            || mdp.isEmpty() || genre.isEmpty() || country.isEmpty() || phone.isEmpty()) {
+                wrongLogin.setText("Veuillez remplir les champs");
+                System.out.println("Veuillez remplir les champs");
+                return;
+            }
+
+            if(verificationInscription(name, firstname, mail, mdp, genre,  country, username, phone)) {
+                // Renvoie à la bonne page
+                System.out.println("Inscription réussie");
+            } else {
+                wrongLogin.setText("Erreur de connexion");
+            }
         }
 
-        @FXML
-        private void btn(MouseEvent event) {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.7));
-            slide.setNode(Layer2);
+        public boolean verificationInscription(String name, String firstname,String mail, String mdp, String genre,
+                                               String country, String username, String phone) {
+            // Vérification si un compte existe déjà avec le même nom et prénom
+            String queryCheckName = "SELECT * FROM Utilisateur WHERE nom = ? AND prenom = ?";
+            // Vérification si un compte existe déjà avec le même nom d'utilisateur
+            String queryCheckUsername = "SELECT * FROM Utilisateur WHERE nom_utilisateur = ?";
+            // Vérification si un compte existe déjà avec le même numéro de téléphone
+            String queryCheckPhone = "SELECT * FROM Utilisateur WHERE telephone = ?";
 
-            slide.setToX(-0.1 * Screen.getPrimary().getBounds().getWidth());
-            slide.play();
+            try (Connection connection = DatabaseConnection.getConnection();
+                 PreparedStatement statementCheckName = connection.prepareStatement(queryCheckName);
+                 PreparedStatement statementCheckUsername = connection.prepareStatement(queryCheckUsername);
+                 PreparedStatement statementCheckPhone = connection.prepareStatement(queryCheckPhone)) {
 
-            Layer1.setTranslateX(50);
-            btnsignin.setVisible(true);
-            b1.setVisible(false);
-            b2.setVisible(true);
+                // Vérification du nom et prénom
+                statementCheckName.setString(1, name);
+                statementCheckName.setString(2, firstname);
+                ResultSet resultSetName = statementCheckName.executeQuery();
+                if (resultSetName.next()) {
+                    System.out.println("Un compte existe déjà avec ce nom et prénom.");
+                    return false;
+                }
 
-            s1.setVisible(true);
-            s2.setVisible(true);
-            s3.setVisible(true);
-            signup.setVisible(true);
-            l1.setVisible(true);
-            l2.setVisible(false);
-            l3.setVisible(true);
-            signin.setVisible(false);
-            a1.setVisible(false);
-            a2.setVisible(true);
-            btnsignup.setVisible(false);
-            n1.setVisible(true);
-            n2.setVisible(true);
-            n3.setVisible(true);
-            u1.setVisible(false);
-            u2.setVisible(false);
-            u3.setVisible(false);
+                // Vérification du nom d'utilisateur
+                statementCheckUsername.setString(1, username);
+                ResultSet resultSetUsername = statementCheckUsername.executeQuery();
+                if (resultSetUsername.next()) {
+                    System.out.println("Un compte existe déjà avec ce nom d'utilisateur.");
+                    return false;
+                }
 
-            slide.setOnFinished(e-> {});
+                // Vérification du numéro de téléphone
+                statementCheckPhone.setString(1, phone);
+                ResultSet resultSetPhone = statementCheckPhone.executeQuery();
+                if (resultSetPhone.next()) {
+                    System.out.println("Un compte existe déjà avec ce numéro de téléphone.");
+                    return false;
+                }
+
+                // Si aucune des vérifications n'échoue, alors procéder à l'insertion
+                String queryInsert = "INSERT INTO Utilisateur (nom, prenom, email, mot_de_passe, sexe, pays, nom_utilisateur, telephone)" +
+                        "VALUES(?,?,?,?,?,?,?,?)";
+                try (PreparedStatement statementInsert = connection.prepareStatement(queryInsert)) {
+                    statementInsert.setString(1, name);
+                    statementInsert.setString(2, firstname);
+                    statementInsert.setString(3, mail);
+                    statementInsert.setString(4, mdp);
+                    statementInsert.setString(5, genre);
+                    statementInsert.setString(6, country);
+                    statementInsert.setString(7, username);
+                    statementInsert.setString(8, phone);
+
+                    int rowsAffected = statementInsert.executeUpdate();
+                    return rowsAffected > 0;
+                }
+            } catch (SQLException | IOException e) {
+                e.printStackTrace();
+            }
+
+            return false;
         }
 
-        @FXML
-        private void btn2(MouseEvent event) {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.7));
-            slide.setNode(Layer2);
-
-            slide.setToX(0.00000000000001*Screen.getPrimary().getBounds().getWidth());
-            slide.play();
-
-            Layer1.setTranslateX(0);
-            btnsignin.setVisible(false);
-            b1.setVisible(true);
-            b2.setVisible(false);
-
-            s1.setVisible(false);
-            s2.setVisible(false);
-            s3.setVisible(false);
-            signup.setVisible(false);
-            l1.setVisible(false);
-            l2.setVisible(true);
-            l3.setVisible(false);
-            signin.setVisible(true);
-            a1.setVisible(true);
-            a2.setVisible(true);
-            btnsignup.setVisible(true);
-            n1.setVisible(false);
-            n2.setVisible(false);
-            n3.setVisible(false);
-            u1.setVisible(true);
-            u2.setVisible(true);
-            u3.setVisible(true);
-
-            slide.setOnFinished(e-> {});
-        }
-
-        @FXML
-        private void signin(MouseEvent event) {
-
-        }
-
-        @FXML
-        private void btnsignup(MouseEvent event) {
-
-        }
     }
