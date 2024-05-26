@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.SportController">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.SportController">
    <top>
       <VBox prefHeight="55.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -71,9 +71,9 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="124.0" prefWidth="242.0">
+                        <AnchorPane onMouseClicked="#Sport1" prefHeight="124.0" prefWidth="242.0">
                            <children>
-                              <ImageView fx:id="ImgSport1" fitHeight="96.0" fitWidth="92.0" layoutX="136.0" layoutY="5.0" onMouseClicked="#btnSportPage" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="ImgSport1" fitHeight="96.0" fitWidth="92.0" layoutX="136.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Images/Image_athletisme.png" />
                                  </image>
@@ -81,7 +81,7 @@
                               <Text layoutX="25.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATHLETISME" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <AnchorPane onMouseClicked="#Sport2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
                               <ImageView fx:id="ImgSport2" fitHeight="93.0" fitWidth="72.0" layoutX="155.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -91,7 +91,7 @@
                               <Text layoutX="26.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVIRON" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <AnchorPane onMouseClicked="#Sport3" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
                               <ImageView fx:id="ImgSport3" fitHeight="97.0" fitWidth="78.0" layoutX="144.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -101,7 +101,7 @@
                               <Text layoutX="24.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BADMINTON" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <AnchorPane onMouseClicked="#Sport4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <ImageView fx:id="ImgSport4" fitHeight="92.0" fitWidth="58.0" layoutX="162.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -111,7 +111,7 @@
                               <Text layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BASKETBALL" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                        <AnchorPane onMouseClicked="#Sport5" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
                               <ImageView fx:id="ImgSport5" fitHeight="97.0" fitWidth="78.0" layoutX="153.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -121,7 +121,7 @@
                               <Text layoutX="20.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BASKETBALL 3x3" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <AnchorPane onMouseClicked="#Sport6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
                               <ImageView fx:id="ImgSport6" fitHeight="97.0" fitWidth="78.0" layoutX="149.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

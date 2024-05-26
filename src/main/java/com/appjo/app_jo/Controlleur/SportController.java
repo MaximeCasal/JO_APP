@@ -2,15 +2,16 @@ package com.appjo.app_jo.Controlleur;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.*;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,14 +20,9 @@ import java.util.Objects;
 public class SportController {
 
     @FXML
-    private ImageView ImgSport1;
-
-    @FXML
-    private Button btnSport;
-
+    private BorderPane mainPane;
     @FXML
     private StackPane midBox;
-
     @FXML
     private ImageView backgroundImage;
 
@@ -79,8 +75,47 @@ public class SportController {
         }
     }
 
-    public void btnSportPage(MouseEvent mouseEvent) {
-
+    public void Sport1(MouseEvent mouseEvent) {
+        int sportId = 1;
+        loadSportPage(sportId);
     }
 
+    private void loadSportPage(int sportId) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/appjo/app_jo/Sport/SportDetails.fxml"));
+            Node sportPage = loader.load();
+
+            SportDetailController controller = loader.getController();
+            controller.loadSportDetails(sportId);
+
+            mainPane.getChildren().setAll(sportPage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void Sport2(MouseEvent mouseEvent) {
+        int sportId = 2;
+        loadSportPage(sportId);
+    }
+
+    public void Sport3(MouseEvent mouseEvent) {
+        int sportId = 3;
+        loadSportPage(sportId);
+    }
+
+    public void Sport4(MouseEvent mouseEvent) {
+        int sportId = 4;
+        loadSportPage(sportId);
+    }
+
+    public void Sport5(MouseEvent mouseEvent) {
+        int sportId = 5;
+        loadSportPage(sportId);
+    }
+
+    public void Sport6(MouseEvent mouseEvent) {
+        int sportId = 6;
+        loadSportPage(sportId);
+    }
 }
