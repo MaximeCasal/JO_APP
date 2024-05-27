@@ -14,4 +14,6 @@ module com.joapp.jo_app {
     exports com.appjo.app_jo;
     exports com.appjo.app_jo.Controlleur;
     opens com.appjo.app_jo.Controlleur;
+    exports com.appjo.app_jo.Controlleur.Admin;
+    opens com.appjo.app_jo.Controlleur.Admin;
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.Admin.AjouterEvenementController">
+   <children>
+      <AnchorPane prefHeight="516.0" prefWidth="658.0">
+         <children>
+            <TableView fx:id="tableView" layoutX="10.0" layoutY="62.0" prefHeight="200.0" prefWidth="355.0">
+               <columns>
+                  <TableColumn fx:id="sportIdColumn" prefWidth="118.10607147216797" text="Sport ID" />
+                  <TableColumn fx:id="eventColumn" prefWidth="235.5" text="Évènement" />
+               </columns>
+            </TableView>
+            <TextField fx:id="sport_id" layoutX="124.0" layoutY="289.0" promptText="Sport ID" />
+            <TextField fx:id="event" layoutX="124.0" layoutY="329.0" promptText="Évènement" />
+            <Label layoutX="27.0" layoutY="293.0" text="Sport ID" />
+            <Label layoutX="19.0" layoutY="334.0" text="Évènement" />
+            <Button layoutX="21.0" layoutY="382.0" mnemonicParsing="false" onMouseClicked="#addBtn" text="Ajouter" />
+            <Button layoutX="204.0" layoutY="382.0" mnemonicParsing="false" onMouseClicked="#supprBtn" text="Supprimer" />
+            <Button layoutX="300.0" layoutY="382.0" mnemonicParsing="false" onMouseClicked="#clearBtn" text="Effacer" />
+            <Button layoutX="95.0" layoutY="382.0" mnemonicParsing="false" onMouseClicked="#saveBtn" text="Sauvegarder" />
+            <AnchorPane layoutX="2.0" layoutY="13.0" prefHeight="35.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="27.0" layoutX="19.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/User_Image.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="58.0" layoutY="7.0" text="Ajouter des Évènement" />
+               </children>
+            </AnchorPane>
+            <Label fx:id="wrongLabel" layoutX="74.0" layoutY="268.0" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
