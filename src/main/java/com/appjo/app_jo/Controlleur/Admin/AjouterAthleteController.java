@@ -82,12 +82,11 @@ public class AjouterAthleteController {
             wrongLabel.setText("Il n'y a rien à sauvegarder");
         } else {
             SharedData.setAthleteData(athleteData);
+            int athleteTaille = athleteData.size();
             wrongLabel.setText("Données sauvegardées avec succès");
             // Optionally, switch to the next page here if needed
         }
     }
 
-    public int getNumberOfAthletes() {
-        return athleteData.size();
-    }
+
 }
