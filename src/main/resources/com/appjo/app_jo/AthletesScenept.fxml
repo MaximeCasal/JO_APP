@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.AthleteController">
+   <children>
+      <VBox fx:id="vbox" prefHeight="882.0" prefWidth="1285.0" styleClass="gridPane" stylesheets="@athletesStyle.css">
+         <children>
+            <Pane fx:id="first_pane" prefHeight="214.0" prefWidth="1285.0" styleClass="first_pane" stylesheets="@athletesStyle.css">
+               <children>
+                  <Pane layoutY="-3.0" prefHeight="103.0" prefWidth="1285.0">
+                     <children>
+                        <Button fx:id="btn1" layoutX="1026.0" layoutY="31.0" mnemonicParsing="false" styleClass="btn1" stylesheets="@athletesStyle.css" text="Connexion / Inscription" />
+                        <ImageView fitHeight="113.0" fitWidth="186.0" layoutX="593.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/JO_Paris.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Text fx:id="texte1" layoutX="260.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Découvrez tout ce qu'il y a à savoir sur vos athlètes préférés" wrappingWidth="832.90625" />
+                  <TextField fx:id="searchField" layoutX="469.0" layoutY="175.0" prefHeight="35.0" prefWidth="354.0" />
+                  <Button fx:id="searchButton" layoutX="833.0" layoutY="180.0" mnemonicParsing="false" text="rechercher" />
+               </children>
+            </Pane>
+            <TableView fx:id="tableView" xmlns:fx="http://javafx.com/fxml">
+               <columns>
+                  <TableColumn text="Nom" fx:id="nomColumn" />
+                  <TableColumn text="Prénom" fx:id="prenomColumn" />
+                  <TableColumn text="Sport" fx:id="SportColumn" />
+                  <!-- Ajoutez d'autres colonnes selon le besoin -->
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</HBox>

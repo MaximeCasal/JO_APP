@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.AthleteController">
    <children>
       <VBox fx:id="vbox" prefHeight="882.0" prefWidth="1285.0" styleClass="gridPane" stylesheets="@athletesStyle.css">
          <children>
@@ -23,130 +22,101 @@
                      </children>
                   </Pane>
                   <Text fx:id="texte1" layoutX="260.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Découvrez tout ce qu'il y a à savoir sur vos athlètes préférés" wrappingWidth="832.90625" />
-                  <TextField layoutX="469.0" layoutY="175.0" prefHeight="35.0" prefWidth="354.0" />
-                  <Button layoutX="833.0" layoutY="180.0" mnemonicParsing="false" text="rechercher" />
+                  <TextField fx:id="searchField" layoutX="469.0" layoutY="175.0" prefHeight="35.0" prefWidth="354.0" />
+                  <Button fx:id="searchButton" layoutX="833.0" layoutY="180.0" mnemonicParsing="false" text="rechercher" />
                </children>
             </Pane>
-            <GridPane prefHeight="569.0" prefWidth="1285.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <GridPane fx:id="gridPane" prefHeight="569.0" prefWidth="1285.0">
+               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane fx:id="athletePane1" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="138.0" fitWidth="165.0" layoutX="146.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="athleteImage1" fitHeight="138.0" fitWidth="165.0" layoutX="146.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/kristof-milak.png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                  <AnchorPane fx:id="athletePane2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <ImageView fitHeight="138.0" fitWidth="138.0" layoutX="145.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="athleteImage2" fitHeight="138.0" fitWidth="138.0" layoutX="145.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/ALAA%20MASO.png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                  <AnchorPane fx:id="athletePane3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
-                        <ImageView fitHeight="126.0" fitWidth="150.0" layoutX="142.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="athleteImage3" fitHeight="126.0" fitWidth="150.0" layoutX="142.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/Serena_Williams.png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="athletePane4" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="athleteImage4" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/Carlos-Yulo.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="41.0" fitWidth="42.0" layoutX="81.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/hu.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="texte11" fill="#fff8f8" layoutX="140.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Kristof Milak" wrappingWidth="164.90625" />
+                        <Text fx:id="athleteName1" fill="#fff8f8" layoutX="126.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Kristof Milak" wrappingWidth="293.5999999999999" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="athletePane5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="192.0" layoutX="139.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="athleteImage5" fitHeight="150.0" fitWidth="192.0" layoutX="139.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/dressel.png" />
                            </image>
                         </ImageView>
-                        <Text fx:id="texte1111" fill="#fff8f8" layoutX="146.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Alaa Maso" wrappingWidth="164.90625" />
-                        <ImageView fitHeight="25.0" fitWidth="42.0" layoutX="86.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/hu.png" />
-                           </image>
-                        </ImageView>
+                        <Text fx:id="athleteName2" fill="#fff8f8" layoutX="139.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Alaa Maso" wrappingWidth="240.90625" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="athletePane6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="138.0" fitWidth="192.0" layoutX="145.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="athleteImage6" fitHeight="138.0" fitWidth="192.0" layoutX="145.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/flora_duffy.png" />
                            </image>
-                           <cursor>
-                              <Cursor fx:constant="DEFAULT" />
-                           </cursor>
                         </ImageView>
-                        <Text fx:id="texte111" fill="#fff8f8" layoutX="145.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Serena Williams" wrappingWidth="225.90625" />
-                        <ImageView fitHeight="25.0" fitWidth="42.0" layoutX="88.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/us.png" />
-                           </image>
-                        </ImageView>
+                        <Text fx:id="athleteName3" fill="#fff8f8" layoutX="106.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Serena Williams" wrappingWidth="354.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="41.0" fitWidth="42.0" layoutX="79.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/jp.png" />
-                           </image>
-                        </ImageView>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                        <Text fx:id="texte112" fill="#fff8f8" layoutX="151.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Carlos Yulo" wrappingWidth="164.90625" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="42.0" layoutX="101.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/bm.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="texte111111" fill="#fff8f8" layoutX="163.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Flora Duffy" wrappingWidth="225.90625" />
-                     </children>
-                  </AnchorPane>
+                        <AnchorPane layoutX="137.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="athleteName4" fill="#fff8f8" layoutX="18.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Carlos Yulo" wrappingWidth="274.90625" />
+                           </children></AnchorPane>
+                     </children></AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="41.0" fitWidth="42.0" layoutX="87.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/us.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="texte11111" fill="#fff8f8" layoutX="150.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="CAELEB DRESSEL" wrappingWidth="225.90625" />
+                        <Text fx:id="athleteName5" fill="#fff8f8" layoutX="132.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Caeleb Dressel" wrappingWidth="240.90625" />
+                     </children></AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Text fx:id="athleteName6" fill="#fff8f8" layoutX="123.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texte1" text="Flora Duffy" wrappingWidth="257.90625" />
                      </children>
                   </AnchorPane>
                </children>
             </GridPane>
+            <HBox alignment="CENTER" spacing="10">
+               <Button fx:id="prevButton" text="Previous" />
+               <Button fx:id="nextButton" text="Next" />
+            </HBox>
          </children>
       </VBox>
    </children>

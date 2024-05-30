@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.AthleteDetailController">
+    <children>
+        <ImageView fx:id="athleteImage" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+        <Text fx:id="athleteName" />
+        <Text fx:id="athleteDetails" />
+        <Button text="Close" onAction="#handleClose" />
+    </children>
+</VBox>
+
