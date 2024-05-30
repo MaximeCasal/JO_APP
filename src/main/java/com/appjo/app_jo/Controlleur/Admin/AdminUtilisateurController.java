@@ -5,11 +5,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -62,6 +66,12 @@ public class AdminUtilisateurController {
     private TextField telephone;
     @FXML
     private Label wrongLabel;
+    @FXML
+    private Label nbrInscrit;
+    @FXML
+    private Label nbrUtilisateur;
+    @FXML
+    private Label nbrAdmin;
 
     private ObservableList<ObservableList<String>> utilisateurData = FXCollections.observableArrayList();
     private boolean isUpdateMode = false; // Variable to track update mode
@@ -82,7 +92,12 @@ public class AdminUtilisateurController {
 
         loadUtilisateurDataFromDatabase();
         tableView.setItems(utilisateurData);
+
+        updateNbrInscrit();
+        updateNbrUtilisateur();
+        updateNbrAdmin();
     }
+
     private void loadUtilisateurDataFromDatabase() {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Utilisateur")) {
@@ -111,9 +126,9 @@ public class AdminUtilisateurController {
 
     public void addBtn(MouseEvent mouseEvent) {
 
-        if(nom.getText().isEmpty() || prenom.getText().isEmpty() || mail.getText().isEmpty() || mdp.getText().isEmpty()
+        if (nom.getText().isEmpty() || prenom.getText().isEmpty() || mail.getText().isEmpty() || mdp.getText().isEmpty()
                 || sexe.getText().isEmpty() || pays.getText().isEmpty() || role.getText().isEmpty() ||
-                nomUtilisateur.getText().isEmpty() || telephone.getText().isEmpty() ) {
+                nomUtilisateur.getText().isEmpty() || telephone.getText().isEmpty()) {
             wrongLabel.setText("Veuillez remplir tous les champs");
         } else {
 
@@ -133,6 +148,10 @@ public class AdminUtilisateurController {
             utilisateurData.add(row);
             clearTextFields();
             addUtilisateurToDatabase(row);
+
+            updateNbrInscrit();
+            updateNbrUtilisateur();
+            updateNbrAdmin();
         }
     }
 
@@ -182,10 +201,16 @@ public class AdminUtilisateurController {
         if (selectedRow != null) {
             utilisateurData.remove(selectedRow);
             deleteUtiFromDatabase(selectedRow);
+
+            updateNbrInscrit();
+            updateNbrUtilisateur();
+            updateNbrAdmin();
         }
     }
 
     public void clearBtn(MouseEvent mouseEvent) {
+        clearTextFields();
+        isUpdateMode = false;
     }
 
     private int getLastUtiIdFromDataBase() {
@@ -227,7 +252,7 @@ public class AdminUtilisateurController {
 
     private void deleteUtiFromDatabase(ObservableList<String> row) {
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("DELETE FROM Evenement WHERE Id_user=?")) {
+             PreparedStatement stmt = conn.prepareStatement("DELETE FROM Utilisateur WHERE Id_user=?")) {
 
             stmt.setInt(1, Integer.parseInt(row.get(0)));
             stmt.executeUpdate();
@@ -237,20 +262,20 @@ public class AdminUtilisateurController {
         }
     }
 
-    private void updateUtiInDatabase(String athleteId, String nomValue, String prenomValue, String mailValue, String mdpValue, String sexeValue, String paysValue, String roleValue, String nomUtilisateurValue, String telephoneValue) {
+    private void updateUtiInDatabase(String utiId, String nomValue, String prenomValue, String mailValue, String mdpValue, String sexeValue, String paysValue, String roleValue, String nomUtilisateurValue, String telephoneValue) {
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO Utilisateur (Id_user, nom, prenom, email,mot_de_passe, sexe, pays, role, nom_utilisateur, telephone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+             PreparedStatement stmt = conn.prepareStatement("UPDATE Utilisateur SET nom=?, prenom=?, email=? ,mot_de_passe=? , sexe=? , pays=? , role=? , nom_utilisateur=? , telephone=?  WHERE Id_user=?")) {
 
-            stmt.setString(1, athleteId);
-            stmt.setString(2, nomValue);
-            stmt.setString(3, prenomValue);
-            stmt.setString(4, mailValue);
-            stmt.setString(5, mdpValue);
-            stmt.setString(6, sexeValue);
-            stmt.setString(7, paysValue);
-            stmt.setString(8, roleValue);
-            stmt.setString(9, nomUtilisateurValue);
-            stmt.setString(10, telephoneValue);
+            stmt.setString(1, nomValue);
+            stmt.setString(2, prenomValue);
+            stmt.setString(3, mailValue);
+            stmt.setString(4, mdpValue);
+            stmt.setString(5, sexeValue);
+            stmt.setString(6, paysValue);
+            stmt.setString(7, roleValue);
+            stmt.setString(8, nomUtilisateurValue);
+            stmt.setString(9, telephoneValue);
+            stmt.setInt(10, Integer.parseInt(utiId));
 
             stmt.executeUpdate();
 
@@ -260,6 +285,67 @@ public class AdminUtilisateurController {
             e.printStackTrace();
         }
     }
+
+    private void updateNbrInscrit() {
+        int count = nbrUtilisateurDataBase();
+        nbrUtilisateur.setText(String.valueOf(count));
+    }
+
+    private void updateNbrUtilisateur() {
+        int count = nbrInscritDataBase();
+        nbrInscrit.setText(String.valueOf(count));
+    }
+
+    private void updateNbrAdmin() {
+        int count = nbrAdminDataBase();
+        nbrAdmin.setText(String.valueOf(count));
+    }
+
+    private int nbrInscritDataBase() {
+        int count = 0;
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(Id_user) FROM Utilisateur")) {
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    count = rs.getInt(1);
+                }
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    private int nbrUtilisateurDataBase() {
+        int count = 0;
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(Id_user) FROM Utilisateur WHERE role='utilisateur'")) {
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    count = rs.getInt(1);
+                }
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    private int nbrAdminDataBase() {
+        int count = 0;
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(Id_user) FROM Utilisateur WHERE role='admin'")) {
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    count = rs.getInt(1);
+                }
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 
     private void clearTextFields() {
         nom.clear();
@@ -272,5 +358,39 @@ public class AdminUtilisateurController {
         nomUtilisateur.clear();
         telephone.clear();
         wrongLabel.setText("");
+    }
+
+    public void deconnexion(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Connection.fxml");
+    }
+
+    public void pageEventAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AdminEvent.fxml");
+    }
+
+    public void pageSportAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AdminSportDetails.fxml");
+    }
+
+    public void pageAthelteAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AthleteAdmin.fxml");
+    }
+
+    public void pageUtilisateurAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AdminUtilisateur.fxml");
+    }
+
+    private void loadScene(MouseEvent event, String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            wrongLabel.setText("Erreur lors du chargement de la page.");
+        }
     }
 }

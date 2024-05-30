@@ -4,6 +4,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.appjo.app_jo.Modele.DatabaseConnection;
+import javafx.stage.Stage;
 
 public class AdminEvenementController {
 
@@ -302,5 +306,39 @@ public class AdminEvenementController {
 
     public void clearBtn(MouseEvent mouseEvent) {
         clearTextFields();
+    }
+
+    public void deconnexion(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Connection.fxml");
+    }
+
+    public void pageEventAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AdminEvent.fxml");
+    }
+
+    public void pageSportAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AdminSportDetails.fxml");
+    }
+
+    public void pageAthelteAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AthleteAdmin.fxml");
+    }
+
+    public void pageUtilisateurAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AdminUtilisateur.fxml");
+    }
+
+    private void loadScene(MouseEvent event, String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            wrongLabel.setText("Erreur lors du chargement de la page.");
+        }
     }
 }

@@ -22,7 +22,6 @@
                         <Pane prefHeight="74.0" prefWidth="1314.0">
                            <children>
                               <Button fx:id="co_button" layoutX="1070.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleConnexion" styleClass="co_button" stylesheets="@style.css" text="Connexion / Inscription" />
-                              <ToggleButtonGroup layoutX="137.0" layoutY="25.0" selectionType="SINGLE" />
                               <Button layoutX="1236.0" layoutY="25.0" mnemonicParsing="false" text="Button" />
                               <ImageView fitHeight="114.0" fitWidth="164.0" layoutX="607.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
