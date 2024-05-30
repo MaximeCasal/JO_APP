@@ -64,27 +64,11 @@
                               <Label layoutX="71.0" layoutY="199.0" text="Bienvenue" />
                               <Label layoutX="59.0" layoutY="230.0" text="Nom utilisateur" />
                               <Line endX="64.5" layoutX="113.0" layoutY="264.0" startX="-100.0" />
-                              <Button layoutX="5.0" layoutY="277.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Home" />
-                              <Button layoutX="5.0" layoutY="312.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Gestion Sport">
-                                 <graphic>
-                                    <ImageView fitHeight="31.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../Images/Plus_image.jpeg" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button layoutX="5.0" layoutY="347.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Gestion Athlètes">
-                                 <graphic>
-                                    <ImageView fitHeight="31.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../Images/Plus_image.jpeg" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button layoutX="5.0" layoutY="382.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Gestion Utilisateur" />
-                              <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="14.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+                              <Button layoutX="5.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#pageEventAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion des Évènements" />
+                              <Button layoutX="5.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#pageSportAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion Sport" />
+                              <Button layoutX="5.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#pageAthelteAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion Athlètes" />
+                              <Button layoutX="5.0" layoutY="382.0" mnemonicParsing="false" onMouseClicked="#pageUtilisateurAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion Utilisateur" />
+                              <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="14.0" layoutY="497.0" onMouseClicked="#deconnexion" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Images/Signout_image.png" />
                                  </image>
@@ -104,17 +88,21 @@
                                  <children>
                                     <AnchorPane layoutY="5.0" prefHeight="106.0" prefWidth="272.0" style="-fx-background-color: green;">
                                        <children>
-                                          <Label layoutX="100.0" layoutY="81.0" text="Nombre total de sport" />
-                                          <Label layoutX="204.0" layoutY="16.0" text="Label" />
+                                          <Label layoutX="78.0" layoutY="14.0" text="Nombre total d'inscrit" />
+                                          <Label fx:id="nbrInscrit" layoutX="121.0" layoutY="62.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane layoutX="293.0" layoutY="5.0" prefHeight="105.0" prefWidth="272.0" style="-fx-background-color: green;">
                                        <children>
-                                          <Label layoutX="80.0" layoutY="70.0" text="Compétition achevée " />
-                                          <Label layoutX="184.0" layoutY="16.0" text="Label" />
+                                          <Label layoutX="77.0" layoutY="14.0" text="Nombre total d'utilisateur" />
+                                          <Label fx:id="nbrUtilisateur" layoutX="121.0" layoutY="62.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="588.0" layoutY="5.0" prefHeight="106.0" prefWidth="272.0" style="-fx-background-color: green;" />
+                                    <AnchorPane layoutX="588.0" layoutY="5.0" prefHeight="106.0" prefWidth="272.0" style="-fx-background-color: green;">
+                                       <children>
+                                          <Label layoutX="85.0" layoutY="14.0" text="Nombre total d'admin" />
+                                          <Label fx:id="nbrAdmin" layoutX="130.0" layoutY="61.0" />
+                                       </children></AnchorPane>
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="-3.0" layoutY="124.0" prefHeight="402.0" prefWidth="892.0">

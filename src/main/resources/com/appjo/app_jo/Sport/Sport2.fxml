@@ -11,17 +11,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.SportController">
    <top>
       <VBox prefHeight="55.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" stylesheets="@Sport.css">
                <children>
-                  <TextField layoutX="79.0" layoutY="15.0" />
-                  <ImageView fitHeight="104.0" fitWidth="49.0" layoutX="276.0" pickOnBounds="true" preserveRatio="true">
+                  <TextField layoutX="109.0" layoutY="18.0" prefHeight="25.0" prefWidth="226.0" stylesheets="@Sport.css" text="fjiemfgnjvegrklgvernjlgm" />
+                  <ImageView fitHeight="104.0" fitWidth="49.0" layoutX="526.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Images/JO_Paris.png" />
                      </image>
@@ -34,98 +35,168 @@
    <left>
       <HBox prefHeight="344.0" prefWidth="117.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="344.0" prefWidth="202.0">
+            <AnchorPane prefHeight="344.0" prefWidth="202.0" style="-fx-background-color: white;" stylesheets="@Sport.css">
                <children>
-                  <Button layoutX="26.0" layoutY="32.0" mnemonicParsing="false" text="Accueil" />
-                  <Button layoutX="22.0" layoutY="76.0" mnemonicParsing="false" text="Evènement " />
-                  <Button layoutX="23.0" layoutY="118.0" mnemonicParsing="false" text="Athlètes" />
-                  <Button layoutX="22.0" layoutY="159.0" mnemonicParsing="false" text="Sports" />
-                  <Button layoutX="22.0" layoutY="199.0" mnemonicParsing="false" text="Calendrier" />
+                  <Button layoutX="17.0" layoutY="38.0" mnemonicParsing="false" text="Accueil" />
+                  <Button layoutX="4.0" layoutY="139.0" mnemonicParsing="false" text="Evènement " />
+                  <Button layoutX="14.0" layoutY="239.0" mnemonicParsing="false" text="Athlètes" />
+                  <Button fx:id="btnSport" layoutX="19.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#btnSport" text="Sports" />
+                  <Button layoutX="8.0" layoutY="422.0" mnemonicParsing="false" text="Calendrier" />
                </children>
             </AnchorPane>
          </children>
       </HBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@Sport.css" BorderPane.alignment="CENTER">
          <children>
-            <GridPane prefHeight="301.0" prefWidth="483.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <StackPane fx:id="midBox" prefHeight="301.0" prefWidth="483.0" styleClass="mid_box">
                <children>
-                  <AnchorPane prefHeight="124.0" prefWidth="242.0">
+                  <AnchorPane prefHeight="562.0" prefWidth="983.0" style="-fx-background-color: rgba(214,194,120,1);">
                      <children>
-                        <ImageView fitHeight="96.0" fitWidth="92.0" layoutX="136.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Images/Image_breaking.png" />
-                           </image>
-                        </ImageView>
-                        <Text layoutX="25.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BREAKING" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <children>
-                        <ImageView fitHeight="93.0" fitWidth="72.0" layoutX="155.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Images/Image_canoeSlalom.png" />
-                           </image>
-                        </ImageView>
-                        <Text layoutX="26.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CANOË SLALOM" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <children>
-                        <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="144.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Images/Image_canoeSprint.png" />
-                           </image>
-                        </ImageView>
-                        <Text layoutX="24.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CANOË SPRINT" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <ImageView fitHeight="92.0" fitWidth="58.0" layoutX="162.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Images/Image_bmxFreestyle.png" />
-                           </image>
-                        </ImageView>
-                        <Text layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CYCLISME BMX FREESTYLE" wrappingWidth="97.70703125" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <children>
-                        <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="153.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Images/Image_bmxRacing.png" />
-                           </image>
-                        </ImageView>
-                        <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CYCLISME BMX RACING" wrappingWidth="123.6357421875" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <children>
-                        <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="149.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Images/Image_cyclismePiste.png" />
-                           </image>
-                        </ImageView>
-                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CYCLISME SUR PISTE" wrappingWidth="115.98876953125" />
+                        <GridPane prefHeight="491.0" prefWidth="983.0" style="-fx-background-color: white;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane onMouseClicked="#Sport14" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="93.0" fitWidth="72.0" layoutX="220.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_cyclismeVTT.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="61.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CYCLISME VTT" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport15" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="2">
+                                 <children>
+                                    <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="210.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_escalade.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="39.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESCALADE SPORTIVE" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport16" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="95.0" fitWidth="85.0" layoutX="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_escrime.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="52.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESCRIME" wrappingWidth="97.70703125" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport17" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="200.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_football.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="60.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FOOTBALL" wrappingWidth="123.6357421875" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport18" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="211.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_golf.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="88.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GOLF" wrappingWidth="51.98876953125" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport19" prefHeight="124.0" prefWidth="242.0" styleClass="card" GridPane.rowIndex="2">
+                                 <children>
+                                    <ImageView fitHeight="95.0" fitWidth="85.0" layoutX="199.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_lutte.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="48.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LUTTE" wrappingWidth="118.3349609375" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport20" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <ImageView fitHeight="93.0" fitWidth="72.0" layoutX="209.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_natation.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="60.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NATATION" wrappingWidth="123.744140625" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport21" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <ImageView fitHeight="86.0" fitWidth="86.0" layoutX="208.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_natationArtistique.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="63.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NATATION ARTISTIQUE" wrappingWidth="117.3447265625" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport22" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.rowIndex="3">
+                                 <children>
+                                    <ImageView fitHeight="105.0" fitWidth="87.0" layoutX="192.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_natationMarathon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="47.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NATATION, MARATHON" wrappingWidth="97.70703125" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport23" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                    <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="209.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_pentathlon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="57.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PENTATHLON MODERNE" wrappingWidth="123.6357421875" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane onMouseClicked="#Sport24" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <children>
+                                    <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="211.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_plongeon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="69.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLONGEON" wrappingWidth="115.98876953125" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="card1" onMouseClicked="#Sport13" prefHeight="124.0" prefWidth="328.0" styleClass="card" stylesheets="@Sport.css">
+                                 <children>
+                                    <ImageView fitHeight="96.0" fitWidth="92.0" layoutX="197.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/Image_cyclismeRoute.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="49.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CYCLISME SUR ROUTE" wrappingWidth="114.1962890625" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
                      </children>
                   </AnchorPane>
                </children>
-            </GridPane>
-            <Pane prefHeight="39.0" prefWidth="483.0">
+            </StackPane>
+            <Pane prefHeight="52.0" prefWidth="983.0" style="-fx-background-color: white;">
                <children>
-                  <Button layoutX="402.0" layoutY="7.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="329.0" layoutY="8.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="554.0" layoutY="5.0" mnemonicParsing="false" text="Page Suivante" />
+                  <Button layoutX="300.0" layoutY="5.0" mnemonicParsing="false" text="Page Précédente" />
                </children>
             </Pane>
          </children>

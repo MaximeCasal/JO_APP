@@ -5,17 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class SportController {
 
@@ -23,37 +17,15 @@ public class SportController {
     private BorderPane mainPane;
     @FXML
     private StackPane midBox;
-    @FXML
-    private ImageView backgroundImage;
+
 
     @FXML
     public void initialize() {
-        // Charger l'image
-        String imagePath = "/Images/Sites_Jeux.jpeg";
-        Image image = new Image(Objects.requireNonNull(getClass().getResource(imagePath)).toExternalForm());
-        backgroundImage.setImage(image);
 
-        // Mettre à jour le clip personnalisé quand la taille du StackPane change
-        midBox.layoutBoundsProperty().addListener((obs, oldVal, newVal) -> updateClip());
     }
 
-    private void updateClip() {
-        double width = midBox.getWidth();
-        double height = midBox.getHeight();
 
-        if (width > 0 && height > 0) {
-            Path clip = new Path();
-            clip.getElements().add(new MoveTo(0, 0));
-            clip.getElements().add(new LineTo(width - 200, 0));
-            clip.getElements().add(new ArcTo(200, 100, 0, width, 100, false, true));
-            clip.getElements().add(new LineTo(width, height - 100));
-            clip.getElements().add(new ArcTo(200, 100, 0, width - 200, height, false, true));
-            clip.getElements().add(new LineTo(0, height));
-            clip.getElements().add(new ClosePath());
 
-            backgroundImage.setClip(clip);
-        }
-    }
 
     @FXML
     public void btnSport(MouseEvent mouseEvent) {
@@ -87,6 +59,7 @@ public class SportController {
 
             SportDetailController controller = loader.getController();
             controller.loadSportDetails(sportId);
+            controller.loadImageSport(sportId);
 
             mainPane.getChildren().setAll(sportPage);
         } catch (IOException e) {
@@ -113,9 +86,93 @@ public class SportController {
         int sportId = 5;
         loadSportPage(sportId);
     }
-
     public void Sport6(MouseEvent mouseEvent) {
         int sportId = 6;
+        loadSportPage(sportId);
+    }
+
+    public void Sport7(MouseEvent mouseEvent) {
+        int sportId = 7;
+        loadSportPage(sportId);
+    }
+    public void Sport8(MouseEvent mouseEvent) {
+        int sportId = 8;
+        loadSportPage(sportId);
+    }
+    public void Sport9(MouseEvent mouseEvent) {
+        int sportId = 9;
+        loadSportPage(sportId);
+    }
+    public void Sport10(MouseEvent mouseEvent) {
+        int sportId = 10;
+        loadSportPage(sportId);
+    }
+    public void Sport11(MouseEvent mouseEvent) {
+        int sportId = 11;
+        loadSportPage(sportId);
+    }
+    public void Sport12(MouseEvent mouseEvent) {
+        int sportId = 12;
+        loadSportPage(sportId);
+    }
+
+    public void Sport13(MouseEvent mouseEvent) {
+        int sportId = 13;
+        loadSportPage(sportId);
+    }
+
+    public void Sport14(MouseEvent mouseEvent) {
+        int sportId = 14;
+        loadSportPage(sportId);
+    }
+
+    public void Sport15(MouseEvent mouseEvent) {
+        int sportId = 15;
+        loadSportPage(sportId);
+    }
+
+    public void Sport16(MouseEvent mouseEvent) {
+        int sportId = 16;
+        loadSportPage(sportId);
+    }
+
+    public void Sport17(MouseEvent mouseEvent) {
+        int sportId = 17;
+        loadSportPage(sportId);
+    }
+
+    public void Sport18(MouseEvent mouseEvent) {
+        int sportId = 18;
+        loadSportPage(sportId);
+    }
+
+    public void Sport19(MouseEvent mouseEvent) {
+        int sportId = 19;
+        loadSportPage(sportId);
+    }
+
+    public void Sport20(MouseEvent mouseEvent) {
+        int sportId = 20;
+        loadSportPage(sportId);
+    }
+
+    public void Sport21(MouseEvent mouseEvent) {
+        int sportId = 21;
+        loadSportPage(sportId);
+    }
+
+    public void Sport22(MouseEvent mouseEvent) {
+        int sportId = 22;
+        loadSportPage(sportId);
+    }
+
+    public void Sport23(MouseEvent mouseEvent) {
+        int sportId = 23;
+        loadSportPage(sportId);
+    }
+
+    public void Sport24(MouseEvent mouseEvent) {
+        int sportId = 24;
         loadSportPage(sportId);
     }
 }

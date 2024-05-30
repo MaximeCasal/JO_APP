@@ -1,10 +1,10 @@
-.search {
+/* .search {
     -fx-text-fill: black;
     -fx-padding: 10px;
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
     -fx-border-color: black;
-    -fx-border-width: 1px; /* Correction ici */
+    -fx-border-width: 1px;
     -fx-pref-height: 1%;
     -fx-background-color: transparent;
 }
@@ -38,4 +38,68 @@
 
 .mid_box {
     -fx-background-color: transparent;
+}
+
+*/
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0.5, 0, 0);
+    -fx-alignment: center;
+    -fx-border-insets: 20px;
+    -fx-background-insets: 5px;
+}
+
+
+
+.card:hover {
+    -fx-background-color: linear-gradient(to right, rgba(214,194,120,1), rgba(214,194,120,0.5));
+}
+
+/* Fond de l'application */
+.root {
+    -fx-background-color: #f5f5f5; /* Fond gris clair */
+    -fx-font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-background-color: rgba(214,194,120,1);
+    -fx-text-fill: black;
+    -fx-background-radius: 20;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-cursor: hand; /* Curseur main */
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 0); /* Ombre subtile */
+}
+
+.button:hover {
+    -fx-background-color: #005bb5; /* Bleu plus foncé au survol */
+}
+
+.button:pressed {
+    -fx-background-color: #003e8a; /* Bleu encore plus foncé lors de la pression */
+}
+
+/* Style pour la barre de recherche */
+.search-bar {
+    -fx-background-color: #ffffff; /* Fond blanc */
+    -fx-background-radius: 20px;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-border-color: #d1d1d1; /* Bordure grise légère */
+    -fx-border-radius: 20px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 3, 0, 0, 0); /* Ombre légère */
+}
+
+/* Style pour les labels */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333; /* Texte sombre */
+    -fx-padding: 5px 0;
 }

@@ -3,9 +3,13 @@
 
     import com.appjo.app_jo.Modele.DatabaseConnection;
     import javafx.fxml.FXML;
+    import javafx.fxml.FXMLLoader;
+    import javafx.scene.Parent;
+    import javafx.scene.Scene;
     import javafx.scene.control.Label;
     import javafx.scene.control.TextField;
     import javafx.scene.input.MouseEvent;
+    import javafx.stage.Stage;
 
     import java.io.IOException;
     import java.sql.Connection;
@@ -52,17 +56,16 @@
                 System.out.println("Veuillez remplir les champs");
                 return;
             }
-
-            if(verificationInscription(name, firstname, mail, mdp, genre,  country, username, phone)) {
-                // Renvoie à la bonne page
-                System.out.println("Inscription réussie");
+            String role = "Utilisateur";
+            if(verificationInscription(name, firstname, mail, mdp, genre, country,  role, username, phone)) {
+                loadScene(mouseEvent, "/com/appjo/app_jo/PrimaryScene.fxml");
             } else {
                 wrongLogin.setText("Erreur de connexion");
             }
         }
 
         public boolean verificationInscription(String name, String firstname,String mail, String mdp, String genre,
-                                               String country, String username, String phone) {
+                                                String country, String role, String username, String phone) {
             // Vérification si un compte existe déjà avec le même nom et prénom
             String queryCheckName = "SELECT * FROM Utilisateur WHERE nom = ? AND prenom = ?";
             // Vérification si un compte existe déjà avec le même nom d'utilisateur
@@ -101,8 +104,8 @@
                 }
 
                 // Si aucune des vérifications n'échoue, alors procéder à l'insertion
-                String queryInsert = "INSERT INTO Utilisateur (nom, prenom, email, mot_de_passe, sexe, pays, nom_utilisateur, telephone)" +
-                        "VALUES(?,?,?,?,?,?,?,?)";
+                String queryInsert = "INSERT INTO Utilisateur (nom, prenom, email, mot_de_passe, sexe, pays, role, nom_utilisateur, telephone)" +
+                        "VALUES(?,?,?,?,?,?,?,?,?)";
                 try (PreparedStatement statementInsert = connection.prepareStatement(queryInsert)) {
                     statementInsert.setString(1, name);
                     statementInsert.setString(2, firstname);
@@ -110,8 +113,9 @@
                     statementInsert.setString(4, mdp);
                     statementInsert.setString(5, genre);
                     statementInsert.setString(6, country);
-                    statementInsert.setString(7, username);
-                    statementInsert.setString(8, phone);
+                    statementInsert.setString(7, role);
+                    statementInsert.setString(8, username);
+                    statementInsert.setString(9, phone);
 
                     int rowsAffected = statementInsert.executeUpdate();
                     return rowsAffected > 0;
@@ -121,6 +125,20 @@
             }
 
             return false;
+        }
+
+        private void loadScene(MouseEvent event, String fxmlPath) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+                Parent root = loader.load();
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                wrongLogin.setText("Erreur lors du chargement de la page.");
+            }
         }
 
     }
