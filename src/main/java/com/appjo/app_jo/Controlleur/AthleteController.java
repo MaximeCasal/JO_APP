@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -51,12 +52,23 @@ public class AthleteController {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection conn = DriverManager.getConnection(url, user, password);
-                 PreparedStatement stmt = conn.prepareStatement("SELECT id_athlete, nom, prenom FROM athlete LIMIT ? OFFSET ?")) {
+                 PreparedStatement stmt = conn.prepareStatement("SELECT * FROM athlete LIMIT ? OFFSET ?")) {
                 stmt.setInt(1, limit);
                 stmt.setInt(2, offset);
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
-                    athletes.add(new Athlete(rs.getInt("id_athlete"), rs.getString("nom"), rs.getString("prenom")));
+                    athletes.add(new Athlete(
+                            rs.getInt("id_athlete"),
+                            rs.getString("nom"),
+                            rs.getString("prenom"),
+                            rs.getString("pays"),
+                            rs.getString("sexe"),
+                            rs.getDouble("taille"),
+                            rs.getInt("poids"),
+                            rs.getString("Sport"),
+                            rs.getInt("age"),
+                            rs.getString("categorie")
+                    ));
                 }
                 updateDisplay();
             }
@@ -74,14 +86,25 @@ public class AthleteController {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection conn = DriverManager.getConnection(url, user, password);
-                 PreparedStatement stmt = conn.prepareStatement("SELECT id_athlete, nom, prenom FROM athlete WHERE LOWER(nom) LIKE ? OR LOWER(prenom) LIKE ? LIMIT ? OFFSET ?")) {
+                 PreparedStatement stmt = conn.prepareStatement("SELECT * FROM athlete WHERE LOWER(nom) LIKE ? OR LOWER(prenom) LIKE ? LIMIT ? OFFSET ?")) {
                 stmt.setString(1, "%" + searchText + "%");
                 stmt.setString(2, "%" + searchText + "%");
                 stmt.setInt(3, limit);
                 stmt.setInt(4, offset);
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
-                    athletes.add(new Athlete(rs.getInt("id_athlete"), rs.getString("nom"), rs.getString("prenom")));
+                    athletes.add(new Athlete(
+                            rs.getInt("id_athlete"),
+                            rs.getString("nom"),
+                            rs.getString("prenom"),
+                            rs.getString("pays"),
+                            rs.getString("sexe"),
+                            rs.getDouble("taille"),
+                            rs.getInt("poids"),
+                            rs.getString("Sport"),
+                            rs.getInt("age"),
+                            rs.getString("categorie")
+                    ));
                 }
                 updateDisplay();
             }
@@ -110,9 +133,14 @@ public class AthleteController {
             if (i < athletes.size()) {
                 Athlete athlete = athletes.get(i);
                 names[i].setText(athlete.getNom() + " " + athlete.getPrenom());
-                // Set the image based on some logic, here I'm just using placeholder images
-                // You might want to load images dynamically based on athlete data
-                //images[i].setImage(new Image("path/to/athlete/image" + athlete.getId() + ".png"));
+
+                String imagePath = "src/main/resources/Images/" + athlete.getId() + ".png";
+                File imageFile = new File(imagePath);
+                if (imageFile.exists()) {
+                    images[i].setImage(new Image(imageFile.toURI().toString()));
+                } else {
+                    images[i].setImage(new Image(new File("src/main/resources/Images/avatar.png").toURI().toString()));
+                }
                 names[i].setOnMouseClicked(event -> showAthleteDetails(athlete));
                 images[i].setOnMouseClicked(event -> showAthleteDetails(athlete));
             } else {

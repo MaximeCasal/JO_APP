@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.layout.GridPane?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.CalendarController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.CalendarController">
    <top>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="718.0" prefWidth="1138.0" BorderPane.alignment="CENTER">
          <children>
             <Text fx:id="monthLabel" layoutX="292.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendrier Jo" wrappingWidth="199.10113525390625">
                <font>
@@ -19,6 +15,15 @@
                </font>
             </Text>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#45525e" height="412.0" layoutX="128.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="528.0" />
+            <!-- Adding daily schedule list view -->
+            <ListView fx:id="dailyScheduleList" layoutX="666.0" layoutY="90.0" prefHeight="210.0" prefWidth="114.0" />
+            <!-- Adding notification section -->
+            <VBox layoutX="668.0" layoutY="308.0" prefHeight="209.0" prefWidth="112.0" spacing="10.0">
+               <Label text="Notifications" />
+               <ListView fx:id="notificationList" prefHeight="100.0" prefWidth="180.0" />
+               <TextField fx:id="notificationInput" promptText="Nouvelle notification" />
+               <Button onAction="#addNotification" text="Ajouter" />
+            </VBox>
             <Button fx:id="btn24" layoutX="351.0" layoutY="189.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="36.0" text="24" />
             <Line endX="368.0" layoutX="263.0" layoutY="150.0" startX="-100.0" />
             <Text fill="WHITE" layoutX="176.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juillet">
@@ -129,9 +134,9 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="calendarPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="calendarPane" prefHeight="159.0" prefWidth="885.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane fx:id="calendarGrid" layoutX="128.0" layoutY="100.0" hgap="10" vgap="10" />
+            <GridPane fx:id="calendarGrid" hgap="10" layoutX="128.0" layoutY="100.0" vgap="10" />
          </children>
       </AnchorPane>
    </center>

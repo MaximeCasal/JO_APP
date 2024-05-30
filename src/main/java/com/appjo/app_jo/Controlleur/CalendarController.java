@@ -4,12 +4,37 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.IOException;
 
 public class CalendarController {
+
+    @FXML
+    private Text monthLabel;
+
+    @FXML
+    private GridPane calendarGrid;
+
+    @FXML
+    private ListView<String> dailyScheduleList;
+
+    @FXML
+    private ListView<String> notificationList;
+
+    @FXML
+    private TextField notificationInput;
 
     @FXML
     private Button btn24;
@@ -50,36 +75,121 @@ public class CalendarController {
 
     @FXML
     public void initialize() {
-        btn24.setOnAction(event -> openNewPage("/com/appjo/app_jo/jour24.fxml"));
+        btn24.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 7, 24)));
+        btn25.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 7, 25)));
+        btn26.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 7, 26)));
+        btn27.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 7, 27)));
+        btn28.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 7, 28)));
+        btn29.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 7, 29)));
+        btn30.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 7, 30)));
+        btn1.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 1)));
+        btn2.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 2)));
+        btn3.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 3)));
+        btn4.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 4)));
+        btn5.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 5)));
+        btn6.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 6)));
+        btn7.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 7)));
+        btn8.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 8)));
+        btn9.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 9)));
+        btn10.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 10)));
+        btn11.setOnAction(event -> handleDateButtonClick(LocalDate.of(2024, 8, 11)));
 
-        btn25.setOnAction(event -> openNewPage("CalendarView.fxml"));
-        btn26.setOnAction(event -> openNewPage("/com/appjo/app_jo/jour24.fxml"));
-        btn27.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn28.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn29.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn30.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn1.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn2.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn3.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn4.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn5.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn6.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn7.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn8.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn9.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn10.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
-        btn11.setOnAction(event -> openNewPage("/com/appjo/app_jo/Admin/AjouterAthlete.fxml"));
+        // Initialize the calendar and other elements
+        initializeCalendar();
     }
 
-    private void openNewPage(String fxmlPath) {
+    private void initializeCalendar() {
+        // Populate the calendar with initial values, etc.
+        loadEventsFromDatabase();
+    }
+
+    private void loadEventsFromDatabase() {
+        String url = "jdbc:mysql://localhost:3306/jo_app";
+        String user = "root";
+        String password = "";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT event_date, event_time, event_name FROM calendar_events")) {
+
+            List<String> events = new ArrayList<>();
+            while (rs.next()) {
+                LocalDate date = rs.getDate("event_date").toLocalDate();
+                String time = rs.getTime("event_time").toString();
+                String name = rs.getString("event_name");
+                events.add(date.format(DateTimeFormatter.ofPattern("dd MMM yyyy")) + " " + time + " - " + name);
+            }
+
+            dailyScheduleList.getItems().addAll(events);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleDateButtonClick(LocalDate date) {
+        Event event = getEventByDate(date);
+        if (event != null) {
+            openEventDetailPage(event);
+        } else {
+            System.out.println("No event found for this date.");
+        }
+    }
+
+    private Event getEventByDate(LocalDate date) {
+        String url = "jdbc:mysql://localhost:3306/jo_app";
+        String user = "root";
+        String password = "";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM calendar_events WHERE event_date = ?")) {
+
+            stmt.setDate(1, java.sql.Date.valueOf(date));
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new Event(
+                        rs.getInt("id"),
+                        rs.getDate("event_date").toLocalDate(),
+                        rs.getTime("event_time").toLocalTime(),
+                        rs.getString("event_name"),
+                        rs.getString("event_description")
+                );
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private void openEventDetailPage(Event event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            AnchorPane newPage = fxmlLoader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/appjo/app_jo/EventDetail.fxml"));
+            AnchorPane page = loader.load();
+
             Stage stage = new Stage();
-            stage.setScene(new Scene(newPage));
-            stage.show();
+            stage.setTitle("Event Details");
+            stage.setScene(new Scene(page));
+
+            EventDetailController controller = loader.getController();
+            controller.setDialogStage(stage);
+            controller.setEventDetails(event);
+
+            stage.showAndWait();
+
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void addNotification() {
+        String notification = notificationInput.getText();
+        if (notification != null && !notification.isEmpty()) {
+            notificationList.getItems().add(notification);
+            notificationInput.clear();
         }
     }
 }

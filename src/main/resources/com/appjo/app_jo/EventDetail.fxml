@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.EventDetailController">
+    <children>
+        <Label fx:id="eventNameLabel" layoutX="14.0" layoutY="14.0" text="Event Name" />
+        <Label fx:id="eventDateLabel" layoutX="14.0" layoutY="44.0" text="Event Date" />
+        <Label fx:id="eventTimeLabel" layoutX="14.0" layoutY="74.0" text="Event Time" />
+        <Label fx:id="eventDescriptionLabel" layoutX="14.0" layoutY="104.0" text="Event Description" />
+        <Button layoutX="14.0" layoutY="144.0" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+    </children>
+</AnchorPane>

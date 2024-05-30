@@ -9,6 +9,8 @@ module com.joapp.jo_app {
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
     requires java.sql;
+    requires kernel;
+    requires layout;
 
     opens com.appjo.app_jo to javafx.fxml;
     exports com.appjo.app_jo;
