@@ -54,7 +54,7 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="554.0" prefWidth="200.0">
+                        <AnchorPane prefHeight="554.0" prefWidth="200.0" styleClass="card1" stylesheets="@Admin.css">
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -62,7 +62,7 @@
                                  </image>
                               </ImageView>
                               <Label layoutX="71.0" layoutY="199.0" text="Bienvenue" />
-                              <Label layoutX="59.0" layoutY="230.0" text="Nom utilisateur" />
+                              <Label fx:id="nomUti" layoutX="59.0" layoutY="230.0" />
                               <Line endX="64.5" layoutX="113.0" layoutY="264.0" startX="-100.0" />
                               <Button layoutX="5.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#pageEventAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion des Évènements" />
                               <Button layoutX="5.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#pageSportAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion Sport" />
@@ -74,40 +74,41 @@
                                  </image>
                               </ImageView>
                               <Label layoutX="69.0" layoutY="510.0" text="Déconnexion" />
+                              <Button layoutX="5.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#pageResultatAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion des Resultats" />
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="card1" stylesheets="@Admin.css" BorderPane.alignment="CENTER">
                      <children>
                         <AnchorPane layoutX="6.0" layoutY="11.0" prefHeight="532.0" prefWidth="879.0">
                            <children>
                               <AnchorPane layoutX="9.0" layoutY="9.0" prefHeight="121.0" prefWidth="860.0">
                                  <children>
-                                    <AnchorPane layoutY="5.0" prefHeight="106.0" prefWidth="272.0" style="-fx-background-color: green;">
+                                    <AnchorPane layoutY="5.0" prefHeight="106.0" prefWidth="272.0" styleClass="card" stylesheets="@Admin.css">
                                        <children>
                                           <Label layoutX="78.0" layoutY="14.0" text="Nombre total d'inscrit" />
                                           <Label fx:id="nbrInscrit" layoutX="121.0" layoutY="62.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="293.0" layoutY="5.0" prefHeight="105.0" prefWidth="272.0" style="-fx-background-color: green;">
+                                    <AnchorPane layoutX="293.0" layoutY="5.0" prefHeight="105.0" prefWidth="272.0" styleClass="card" stylesheets="@Admin.css">
                                        <children>
                                           <Label layoutX="77.0" layoutY="14.0" text="Nombre total d'utilisateur" />
                                           <Label fx:id="nbrUtilisateur" layoutX="121.0" layoutY="62.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="588.0" layoutY="5.0" prefHeight="106.0" prefWidth="272.0" style="-fx-background-color: green;">
+                                    <AnchorPane layoutX="588.0" layoutY="5.0" prefHeight="106.0" prefWidth="272.0" styleClass="card" stylesheets="@Admin.css">
                                        <children>
                                           <Label layoutX="85.0" layoutY="14.0" text="Nombre total d'admin" />
                                           <Label fx:id="nbrAdmin" layoutX="130.0" layoutY="61.0" />
                                        </children></AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="-3.0" layoutY="124.0" prefHeight="402.0" prefWidth="892.0">
+                              <AnchorPane layoutX="-3.0" layoutY="124.0" prefHeight="414.0" prefWidth="889.0" styleClass="card1">
                                  <children>
-                                    <TableView fx:id="tableView" layoutX="-1.0" layoutY="36.0" prefHeight="200.0" prefWidth="895.0">
+                                    <TableView fx:id="tableView" layoutX="8.0" layoutY="44.0" prefHeight="200.0" prefWidth="877.0">
                                        <columns>
                                           <TableColumn fx:id="utilisateurIDColumn" prefWidth="78.0" text="Utilisateur ID" />
                                           <TableColumn fx:id="nomColumn" prefWidth="84.0" text="Nom" />
@@ -118,33 +119,33 @@
                                           <TableColumn fx:id="paysColumn" minWidth="0.0" prefWidth="71.0" text="Pays" />
                                           <TableColumn fx:id="roleColumn" minWidth="0.0" prefWidth="56.0" text="Role" />
                                           <TableColumn fx:id="nomUtiliColumn" minWidth="0.0" prefWidth="122.0" text="Nom Utilisateur" />
-                                          <TableColumn fx:id="telephoneColumn" minWidth="0.0" prefWidth="107.0" text="Téléphone" />
+                                          <TableColumn fx:id="telephoneColumn" minWidth="0.0" prefWidth="101.0" text="Téléphone" />
                                        </columns>
                                     </TableView>
-                                    <TextField layoutX="13.0" layoutY="3.0" prefHeight="26.0" prefWidth="214.0" promptText="Recherche" />
-                                    <TextField fx:id="nom" layoutX="90.0" layoutY="255.0" promptText="Nom" />
-                                    <TextField fx:id="prenom" layoutX="90.0" layoutY="290.0" promptText="Prénom" />
-                                    <Label layoutX="32.0" layoutY="259.0" text="Nom" />
-                                    <Label layoutX="32.0" layoutY="328.0" text="Email" />
-                                    <Label layoutX="24.0" layoutY="294.0" text="Prénom" />
-                                    <Label fx:id="Sexe" layoutX="310.0" layoutY="298.0" prefHeight="18.0" prefWidth="35.0" text="Sexe" />
+                                    <TextField layoutX="45.0" layoutY="14.0" prefHeight="26.0" prefWidth="214.0" promptText="Recherche" />
+                                    <TextField fx:id="nom" layoutX="90.0" layoutY="261.0" promptText="Nom" />
+                                    <TextField fx:id="prenom" layoutX="90.0" layoutY="296.0" promptText="Prénom" />
+                                    <Label layoutX="32.0" layoutY="265.0" text="Nom" />
+                                    <Label layoutX="32.0" layoutY="334.0" text="Email" />
+                                    <Label layoutX="24.0" layoutY="300.0" text="Prénom" />
+                                    <Label fx:id="Sexe" layoutX="310.0" layoutY="304.0" prefHeight="18.0" prefWidth="35.0" text="Sexe" />
                                     <Button layoutX="170.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#addBtn" text="Ajouter" />
                                     <Button layoutX="364.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#updateBtn" text="Mettre à jour" />
                                     <Button layoutX="258.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#supprBtn" text="Supprimer" />
                                     <Button layoutX="492.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#clearBtn" text="Effacer" />
-                                    <Label fx:id="wrongLabel" layoutX="90.0" layoutY="239.0" textFill="RED" />
-                                    <TextField fx:id="sexe" layoutX="360.0" layoutY="294.0" promptText="Sexe" />
-                                    <TextField fx:id="mail" layoutX="90.0" layoutY="324.0" promptText="Email" />
-                                    <Label layoutX="310.0" layoutY="333.0" text="Pays" />
-                                    <TextField fx:id="pays" layoutX="360.0" layoutY="329.0" promptText="Pays" />
-                                    <Label layoutX="593.0" layoutY="261.0" text="Role" />
-                                    <TextField fx:id="role" layoutX="651.0" layoutY="255.0" promptText="Role" />
-                                    <Label layoutX="547.0" layoutY="299.0" text="Nom d'utilisateur" />
-                                    <TextField fx:id="nomUtilisateur" layoutX="651.0" layoutY="295.0" promptText="Nom d'utilisateur" />
-                                    <Label layoutX="273.0" layoutY="260.0" text="Mot de passe" />
-                                    <TextField fx:id="mdp" layoutX="360.0" layoutY="256.0" promptText="Mot de Passe" />
-                                    <Label layoutX="576.0" layoutY="337.0" text="Téléphone" />
-                                    <TextField fx:id="telephone" layoutX="651.0" layoutY="332.0" promptText="Téléphone" />
+                                    <Label fx:id="wrongLabel" layoutX="90.0" layoutY="244.0" prefHeight="17.0" prefWidth="17.0" textFill="RED" />
+                                    <TextField fx:id="sexe" layoutX="360.0" layoutY="300.0" promptText="Sexe" />
+                                    <TextField fx:id="mail" layoutX="90.0" layoutY="330.0" promptText="Email" />
+                                    <Label layoutX="310.0" layoutY="339.0" text="Pays" />
+                                    <TextField fx:id="pays" layoutX="360.0" layoutY="335.0" promptText="Pays" />
+                                    <Label layoutX="593.0" layoutY="267.0" text="Role" />
+                                    <TextField fx:id="role" layoutX="651.0" layoutY="261.0" promptText="Role" />
+                                    <Label layoutX="547.0" layoutY="305.0" text="Nom d'utilisateur" />
+                                    <TextField fx:id="nomUtilisateur" layoutX="651.0" layoutY="301.0" promptText="Nom d'utilisateur" />
+                                    <Label layoutX="273.0" layoutY="266.0" text="Mot de passe" />
+                                    <TextField fx:id="mdp" layoutX="360.0" layoutY="262.0" promptText="Mot de Passe" />
+                                    <Label layoutX="576.0" layoutY="343.0" text="Téléphone" />
+                                    <TextField fx:id="telephone" layoutX="651.0" layoutY="338.0" promptText="Téléphone" />
                                  </children>
                               </AnchorPane>
                            </children>

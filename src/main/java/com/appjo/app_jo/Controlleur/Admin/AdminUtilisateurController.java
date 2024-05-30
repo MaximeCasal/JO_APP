@@ -393,4 +393,8 @@ public class AdminUtilisateurController {
             wrongLabel.setText("Erreur lors du chargement de la page.");
         }
     }
+
+    public void pageResultatAdmin(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Admin/AdminResultat.fxml");
+    }
 }

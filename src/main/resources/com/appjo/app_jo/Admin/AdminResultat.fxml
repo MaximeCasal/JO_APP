@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Line?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.Admin.AdminEvenementController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.Admin.AdminResultatController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -27,7 +27,7 @@
                                     <Image url="@../../Images/User_Image.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="58.0" layoutY="7.0" text="Gestion Évènement" />
+                              <Label layoutX="58.0" layoutY="7.0" text="Gestion Résultat" />
                               <Button layoutX="1018.0" layoutY="8.0" mnemonicParsing="false">
                                  <graphic>
                                     <ImageView fitHeight="19.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -46,6 +46,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <Button fx:id="imprimer" layoutX="825.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleDownloadPdf" text="Imprimer" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -54,7 +55,7 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="554.0" prefWidth="200.0" styleClass="card1" stylesheets="@Admin.css">
+                        <AnchorPane prefHeight="554.0" prefWidth="200.0">
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -81,57 +82,39 @@
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="577.0" prefWidth="911.0" styleClass="card1" stylesheets="@Admin.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
                         <AnchorPane layoutX="6.0" layoutY="11.0" prefHeight="532.0" prefWidth="879.0">
                            <children>
-                              <AnchorPane layoutX="13.0" prefHeight="121.0" prefWidth="860.0" stylesheets="@Admin.css">
+                              <AnchorPane layoutX="9.0" layoutY="9.0" prefHeight="121.0" prefWidth="860.0" />
+                              <AnchorPane layoutX="10.0" layoutY="-3.0" prefHeight="538.0" prefWidth="863.0">
                                  <children>
-                                    <AnchorPane layoutY="5.0" prefHeight="106.0" prefWidth="272.0" styleClass="card">
-                                       <children>
-                                          <Label layoutX="24.0" layoutY="45.0" text="Nombre total de sport" />
-                                          <Label layoutX="204.0" layoutY="45.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="293.0" layoutY="5.0" prefHeight="105.0" prefWidth="272.0" styleClass="card">
-                                       <children>
-                                          <Label layoutX="25.0" layoutY="44.0" text="Compétition achevée " />
-                                          <Label layoutX="198.0" layoutY="44.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="588.0" layoutY="5.0" prefHeight="106.0" prefWidth="272.0" styleClass="card">
-                                       <children>
-                                          <Label layoutX="32.0" layoutY="42.0" text="Athlètes Participant" />
-                                          <Label layoutX="208.0" layoutY="42.0" />
-                                       </children></AnchorPane>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane layoutX="2.0" layoutY="109.0" prefHeight="428.0" prefWidth="882.0" styleClass="card1" stylesheets="@Admin.css">
-                                 <children>
-                                    <TableView fx:id="tableView" layoutX="28.0" layoutY="48.0" prefHeight="200.0" prefWidth="837.0">
+                                    <TableView fx:id="tableView" layoutX="14.0" layoutY="36.0" prefHeight="304.0" prefWidth="837.0">
                                        <columns>
-                                          <TableColumn fx:id="EventIDColumn" prefWidth="75.0" text="Event ID" />
-                                          <TableColumn fx:id="nomColumn" prefWidth="132.0" text="Nom" />
-                                          <TableColumn fx:id="descrColumn" prefWidth="229.0" text="Description" />
-                                          <TableColumn fx:id="sportColumn" minWidth="0.0" prefWidth="71.0" text="Sport" />
-                                          <TableColumn fx:id="athleteColumn" prefWidth="245.0" text="Athlètes" />
-                                          <TableColumn fx:id="athleteIDColumn" minWidth="0.0" prefWidth="84.0" text="Athlete ID" />
+                                          <TableColumn fx:id="resultatIDColumn" prefWidth="75.0" text="Résultat ID" />
+                                          <TableColumn fx:id="sportColumn" prefWidth="144.0" text="Sport" />
+                                          <TableColumn fx:id="athColumn" prefWidth="130.0" text="Athlete" />
+                                          <TableColumn fx:id="tempsColumn" prefWidth="145.5" text="Temps" />
+                                          <TableColumn fx:id="placementColumn" minWidth="0.0" prefWidth="184.5" text="Placement" />
+                                          <TableColumn fx:id="medailleColumn" minWidth="0.0" prefWidth="157.0" text="Médaille" />
                                        </columns>
                                     </TableView>
-                                    <TextField layoutX="32.0" layoutY="14.0" prefHeight="26.0" prefWidth="214.0" promptText="Recherche" />
-                                    <TextField fx:id="nom" layoutX="133.0" layoutY="277.0" promptText="Nom" />
-                                    <TextField fx:id="description" layoutX="133.0" layoutY="322.0" promptText="Description de l'évènement" />
-                                    <Label layoutX="63.0" layoutY="281.0" text="Nom" />
-                                    <Label layoutX="399.0" layoutY="281.0" text="Sport" />
-                                    <Label layoutX="32.0" layoutY="328.0" text="Description" />
-                                    <Label layoutX="392.0" layoutY="328.0" prefHeight="18.0" prefWidth="54.0" text="Athlete" />
-                                    <Button layoutX="444.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#addBtn" text="Ajouter" />
-                                    <Button layoutX="349.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#updateBtn" text="Mettre à jour" />
-                                    <Button layoutX="265.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#supprBtn" text="Supprimer" />
-                                    <Button layoutX="199.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#clearBtn" text="Effacer" />
-                                    <Label fx:id="wrongLabel" layoutX="127.0" layoutY="254.0" prefHeight="17.0" prefWidth="12.0" textFill="RED" />
-                                    <TextField fx:id="athParticipant" layoutX="466.0" layoutY="324.0" promptText="Nom uniquement" />
-                                    <TextField fx:id="sport" layoutX="467.0" layoutY="277.0" promptText="Sport en lien" />
+                                    <TextField layoutX="13.0" layoutY="3.0" prefHeight="26.0" prefWidth="214.0" promptText="Recherche" />
+                                    <Button layoutX="130.0" layoutY="498.0" mnemonicParsing="false" onMouseClicked="#addBtn" text="Ajouter" />
+                                    <Button layoutX="480.0" layoutY="499.0" mnemonicParsing="false" onMouseClicked="#updateBtn" text="Mettre à jour" />
+                                    <Button layoutX="233.0" layoutY="497.0" mnemonicParsing="false" onMouseClicked="#supprBtn" text="Supprimer" />
+                                    <Button layoutX="360.0" layoutY="498.0" mnemonicParsing="false" onMouseClicked="#clearBtn" text="Effacer" />
+                                    <Label fx:id="wrongLabel" layoutX="91.0" layoutY="340.0" prefHeight="17.0" prefWidth="18.0" textFill="RED" />
+                                    <TextField fx:id="sport" layoutX="80.0" layoutY="360.0" promptText="Sport" />
+                                    <Label layoutX="25.0" layoutY="364.0" text="Sport" />
+                                    <TextField fx:id="placement" layoutX="363.0" layoutY="410.0" promptText="Placement" />
+                                    <Label layoutX="275.0" layoutY="414.0" text="Placement" />
+                                    <TextField fx:id="athlete" layoutX="80.0" layoutY="409.0" promptText="Athlete" />
+                                    <Label layoutX="20.0" layoutY="418.0" text="Ahtlète" />
+                                    <Label layoutX="285.0" layoutY="365.0" text="Temps" />
+                                    <TextField fx:id="temps" layoutX="364.0" layoutY="359.0" promptText="Temps" />
+                                    <TextField fx:id="medaille" layoutX="679.0" layoutY="361.0" promptText="Médaille" />
+                                    <Label layoutX="587.0" layoutY="365.0" text="Médaille" />
                                  </children>
                               </AnchorPane>
                            </children>
