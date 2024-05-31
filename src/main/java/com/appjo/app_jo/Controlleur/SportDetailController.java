@@ -75,8 +75,11 @@ public class SportDetailController {
                 String base64ImageVerti = convertBlobToBase64(blobVerti);
 
                 // Créer des images à partir des chaînes Base64
-                Image imageHori = new Image(base64ImageHori);
-                Image imageVerti = new Image(base64ImageVerti);
+                InputStream streamHori = new ByteArrayInputStream(Base64.getDecoder().decode(base64ImageHori));
+                Image imageHori = new Image(streamHori);
+
+                InputStream streamVerti = new ByteArrayInputStream(Base64.getDecoder().decode(base64ImageVerti));
+                Image imageVerti = new Image(streamVerti);
 
                 // Définir les images sur les ImageView
                 this.imgHori.setImage(imageHori);

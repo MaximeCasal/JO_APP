@@ -25,8 +25,6 @@ public class SportController {
     }
 
 
-
-
     @FXML
     public void btnSport(MouseEvent mouseEvent) {
         try {
