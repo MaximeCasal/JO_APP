@@ -22,7 +22,7 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Sport.css">
                <children>
-                  <TextField layoutX="45.0" layoutY="8.0" prefHeight="9.0" prefWidth="178.0" stylesheets="@Sport.css" text="fjiemfgnjvegrklgvernjlgm">
+                  <TextField layoutX="45.0" layoutY="8.0" prefHeight="9.0" prefWidth="178.0" stylesheets="@Sport.css">
                      <styleClass>
                         <String fx:value="search" />
                         <String fx:value="searchinput" />
@@ -39,11 +39,11 @@
          <children>
             <AnchorPane prefHeight="344.0" prefWidth="202.0">
                <children>
-                  <Button layoutX="26.0" layoutY="32.0" mnemonicParsing="false" text="Accueil" />
-                  <Button layoutX="22.0" layoutY="76.0" mnemonicParsing="false" text="Evènement " />
-                  <Button layoutX="23.0" layoutY="118.0" mnemonicParsing="false" text="Athlètes" />
-                  <Button fx:id="btnSport" layoutX="22.0" layoutY="159.0" mnemonicParsing="false" onMouseClicked="#btnSport" text="Sports" />
-                  <Button layoutX="22.0" layoutY="199.0" mnemonicParsing="false" text="Calendrier" />
+                  <Button layoutX="18.0" layoutY="31.0" mnemonicParsing="false" text="Accueil" />
+                  <Button layoutX="4.0" layoutY="113.0" mnemonicParsing="false" text="Evènement " />
+                  <Button layoutX="14.0" layoutY="202.0" mnemonicParsing="false" text="Athlètes" />
+                  <Button fx:id="btnSport" layoutX="19.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#btnSport" text="Sports" />
+                  <Button layoutX="8.0" layoutY="405.0" mnemonicParsing="false" text="Calendrier" />
                </children>
             </AnchorPane>
          </children>
@@ -197,8 +197,8 @@
             </StackPane>
             <Pane prefHeight="52.0" prefWidth="983.0">
                <children>
-                  <Button layoutX="402.0" layoutY="7.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="329.0" layoutY="8.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="544.0" layoutY="8.0" mnemonicParsing="false" text="Page Suivante" />
+                  <Button layoutX="329.0" layoutY="8.0" mnemonicParsing="false" text="Page Précédente" />
                </children>
             </Pane>
          </children>
