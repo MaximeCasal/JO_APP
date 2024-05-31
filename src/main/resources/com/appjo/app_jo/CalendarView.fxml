@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.CalendarController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appjo.app_jo.Controlleur.CalendarController">
    <top>
       <AnchorPane prefHeight="718.0" prefWidth="1138.0" BorderPane.alignment="CENTER">
          <children>
@@ -130,6 +138,11 @@
             <Button fx:id="btn10" layoutX="486.0" layoutY="469.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="36.0" text="10" />
             <Button fx:id="btn11" layoutX="563.0" layoutY="467.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="36.0" text="11" />
             <Line endX="368.0" layoutX="263.0" layoutY="455.0" startX="-100.0" />
+            <Button layoutX="24.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#accueilPage" text="Accueil" />
+            <Button layoutX="14.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#evenementPage" text="Évènement" />
+            <Button layoutX="25.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#athletePage" text="Athlète" />
+            <Button layoutX="30.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#sportPage" text="Sport" />
+            <Button layoutX="17.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#calendrierPage" text="Calendrier" />
          </children>
       </AnchorPane>
    </top>

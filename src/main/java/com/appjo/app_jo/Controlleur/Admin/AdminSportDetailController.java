@@ -220,10 +220,6 @@ public class AdminSportDetailController {
         isUpdateMode = false;
     }
 
-    public void saveBtn(MouseEvent mouseEvent) {
-        // Implémentation du bouton de sauvegarde
-    }
-
     private void clearTextFields() {
         nom.clear();
         description.clear();

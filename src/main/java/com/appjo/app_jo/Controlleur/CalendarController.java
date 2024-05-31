@@ -2,12 +2,14 @@ package com.appjo.app_jo.Controlleur;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.layout.AnchorPane;
@@ -190,6 +192,39 @@ public class CalendarController {
         if (notification != null && !notification.isEmpty()) {
             notificationList.getItems().add(notification);
             notificationInput.clear();
+        }
+    }
+
+    public void sportPage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Sport/Sport.fxml");
+    }
+
+    public void evenementPage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/EventDetail.fxml");
+    }
+
+    public void calendrierPage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/CalendarView.fxml");
+    }
+
+    public void accueilPage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/PrimaryScene.fxml");
+    }
+
+    public void athletePage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Sport/AthletesScene.fxml");
+    }
+
+    private void loadScene(MouseEvent event, String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

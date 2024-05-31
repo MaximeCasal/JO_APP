@@ -37,11 +37,11 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;">
                <children>
-                  <Button layoutX="35.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#sportPage" text="Button" />
-                  <Button layoutX="34.0" layoutY="79.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="34.0" layoutY="133.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="34.0" layoutY="187.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="34.0" layoutY="254.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="39.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#sportPage" text="Sport" />
+                  <Button layoutX="20.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#evenementPage" text="Évènement" />
+                  <Button layoutX="26.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#calendrierPage" text="Calendrier" />
+                  <Button layoutX="31.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#accueilPage" text="Accueil" />
+                  <Button layoutX="33.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#athletePage" text="Athlète" />
                </children>
             </AnchorPane>
          </children>

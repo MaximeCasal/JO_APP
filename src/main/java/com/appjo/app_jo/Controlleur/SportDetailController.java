@@ -55,6 +55,7 @@ public class SportDetailController {
         return Base64.getEncoder().encodeToString(blobBytes);
     }
 
+
     public void loadImageSport(int sportId) {
         String query = "SELECT imageHori, imageVerti FROM Sport WHERE id = ?";
 
@@ -66,24 +67,24 @@ public class SportDetailController {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
+
                 // Récupérer les blobs
                 Blob blobHori = resultSet.getBlob("imageHori");
+                byte[] imageBytesHori = blobHori.getBytes(1, (int) blobHori.length());
                 Blob blobVerti = resultSet.getBlob("imageVerti");
+                byte[] imageBytesVerti = blobVerti.getBytes(1, (int) blobVerti.length());
 
                 // Convertir les blobs en Base64
-                String base64ImageHori = convertBlobToBase64(blobHori);
-                String base64ImageVerti = convertBlobToBase64(blobVerti);
+                String base64ImageHori = java.util.Base64.getEncoder().encodeToString(imageBytesHori);
+                String base64ImageVerti = java.util.Base64.getEncoder().encodeToString(imageBytesVerti);
 
-                // Créer des images à partir des chaînes Base64
-                InputStream streamHori = new ByteArrayInputStream(Base64.getDecoder().decode(base64ImageHori));
-                Image imageHori = new Image(streamHori);
+                Image ImageHori = new Image(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(base64ImageHori)));
+                Image ImageVerti = new Image(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(base64ImageVerti)));
 
-                InputStream streamVerti = new ByteArrayInputStream(Base64.getDecoder().decode(base64ImageVerti));
-                Image imageVerti = new Image(streamVerti);
 
                 // Définir les images sur les ImageView
-                this.imgHori.setImage(imageHori);
-                this.imgVerti.setImage(imageVerti);
+                this.imgHori.setImage(ImageHori);
+                this.imgVerti.setImage(ImageVerti);
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
@@ -142,5 +143,21 @@ public class SportDetailController {
                 wrongLabel.setText("Aucun résultat trouvé");
             }
         }
+    }
+
+    public void evenementPage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/EventDetail.fxml");
+    }
+
+    public void calendrierPage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/CalendarView.fxml");
+    }
+
+    public void accueilPage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/PrimaryScene.fxml");
+    }
+
+    public void athletePage(MouseEvent mouseEvent) {
+        loadScene(mouseEvent, "/com/appjo/app_jo/Sport/AthletesScene.fxml");
     }
 }

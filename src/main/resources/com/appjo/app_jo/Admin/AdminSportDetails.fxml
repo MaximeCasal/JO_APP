@@ -68,7 +68,7 @@
                               <Button layoutX="5.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#pageSportAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion Sport" />
                               <Button layoutX="5.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#pageAthelteAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion Athlètes" />
                               <Button layoutX="5.0" layoutY="382.0" mnemonicParsing="false" onMouseClicked="#pageUtilisateurAdmin" prefHeight="35.0" prefWidth="180.0" text="Gestion Utilisateur" />
-                              <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="14.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="14.0" layoutY="497.0" onMouseClicked="#deconnexion" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Images/Signout_image.png" />
                                  </image>
